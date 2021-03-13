@@ -11,6 +11,8 @@ public class Atteli : MonoBehaviour
     public AudioSource skanasAvots;
     public AudioClip[] skanasKoAtskanot;
     private int cip;
+    public GameObject sliderH, sliderV;
+    float saglabatH = 1, saglabatV = 1;
 
     public void dropdown(int skaitlis)
     {
@@ -35,15 +37,29 @@ public class Atteli : MonoBehaviour
     {
         if(cip == 0)
             skanasAvots.PlayOneShot(skanasKoAtskanot[0]);
-        else if (cip == 1)
+        else if(cip == 1)
             skanasAvots.PlayOneShot(skanasKoAtskanot[1]);
-        else if (cip == 2)
+        else if(cip == 2)
             skanasAvots.PlayOneShot(skanasKoAtskanot[2]);
     }
 
     public void beigtAtskanot()
     {
         skanasAvots.Stop();
+    }
+
+    public void mainitLielumuHorizontali()
+    {
+        float pasreizejaVertiba = sliderH.GetComponent<Slider>().value;
+        mainigaisAttels.transform.localScale = new Vector2(1F * pasreizejaVertiba, saglabatV);
+        saglabatH = 1F * pasreizejaVertiba;
+    }
+
+    public void mainitLielumuVertikali()
+    {
+        float pasreizejaVertiba = sliderV.GetComponent<Slider>().value;
+        mainigaisAttels.transform.localScale = new Vector2(saglabatH, 1F * pasreizejaVertiba);
+        saglabatV = 1F * pasreizejaVertiba;
     }
 
     public void paraditPirmoA(bool vertiba)
