@@ -19,6 +19,10 @@ public class Atteli : MonoBehaviour
         {
             mainigaisAttels.GetComponent<Image>().sprite = atteluMasivs[1];
         }
+        else if (skaitlis == 2)
+        {
+            mainigaisAttels.GetComponent<Image>().sprite = atteluMasivs[2];
+        }
     }
 
     public void paraditPirmoA(bool vertiba)
