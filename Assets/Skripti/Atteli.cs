@@ -8,21 +8,42 @@ public class Atteli : MonoBehaviour
     public GameObject mainigaisAttels;
     public Sprite[] atteluMasivs;
     public GameObject[] aksesuaruAtteli, cepuruAtteli, krekluAtteli, jakuAtteli, biksuAtteli, kurpjuAtteli;
+    public AudioSource skanasAvots;
+    public AudioClip[] skanasKoAtskanot;
+    private int cip;
 
     public void dropdown(int skaitlis)
     {
         if(skaitlis == 0)
         {
             mainigaisAttels.GetComponent<Image>().sprite = atteluMasivs[0];
+            cip = 0;
         } 
         else if(skaitlis == 1)
         {
             mainigaisAttels.GetComponent<Image>().sprite = atteluMasivs[1];
+            cip = 1;
         }
         else if (skaitlis == 2)
         {
             mainigaisAttels.GetComponent<Image>().sprite = atteluMasivs[2];
+            cip = 2;
         }
+    }
+
+    public void atskanot()
+    {
+        if(cip == 0)
+            skanasAvots.PlayOneShot(skanasKoAtskanot[0]);
+        else if (cip == 1)
+            skanasAvots.PlayOneShot(skanasKoAtskanot[1]);
+        else if (cip == 2)
+            skanasAvots.PlayOneShot(skanasKoAtskanot[2]);
+    }
+
+    public void beigtAtskanot()
+    {
+        skanasAvots.Stop();
     }
 
     public void paraditPirmoA(bool vertiba)
